@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "608806587899",
+    "project_id": "sstflix-f63e6",
+    "storage_bucket": "sstflix-f63e6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608806587899:android:4c3b950cdb9cba241f4f5e",
+        "android_client_info": {
+          "package_name": "com.example.sstfix"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608806587899-nfdt6spgp08eahc8f0rk7afj0tj7u3di.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCJU_rbV_zcezLAdUCWDZedPa2P-dO3rH4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "608806587899-nfdt6spgp08eahc8f0rk7afj0tj7u3di.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
