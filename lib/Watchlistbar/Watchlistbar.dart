@@ -9,7 +9,6 @@ class Watchlistbar extends StatefulWidget {
 class _WatchlistbarState extends State<Watchlistbar> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-    );
+    return Container();
   }
 }

@@ -357,7 +357,7 @@ class _DetailsPageBodyState extends ConsumerState<DetailsPageBody> {
                   id: moviedetails[0]['id'],
                 ),
                 Recommendations(
-                    id: moviedetails[0]['id'],
+                    uid: moviedetails[0]['id'],
                     movie_name: widget.moviename),
                 Reviews(
                   id: moviedetails[0]['id'],
