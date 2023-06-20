@@ -103,6 +103,8 @@ class _RecommendationsState extends State<Recommendations> {
       var response = await Dio().get(
           "${Api.baseUrl}send/" + widget.movie_name.toString() + "/" +
               "$uid".toString());
+      // print("${Api.baseUrl}score/" + widget.movie_name.toString() + "/" +
+      //     recommend[index]["title"]);
       var data = response.data;
       if (mounted) {
         setState(() {
@@ -317,6 +319,8 @@ class _RecommendationsState extends State<Recommendations> {
           itemCount: recommend.isNotEmpty ? 5 : 0,
           controller: ScrollController(keepScrollOffset: false),
           itemBuilder: (BuildContext context, int index) {
+
+
             print("${Api.baseUrl}score/" + widget.movie_name.toString() + "/" +
                 recommend[index]["title"]);
 
@@ -384,7 +388,6 @@ class _RecommendationsState extends State<Recommendations> {
       );
     }
   }
-
  }
 
 

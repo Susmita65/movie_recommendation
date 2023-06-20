@@ -28,8 +28,9 @@ class ScoreService {
   Future<Map<String, dynamic>> getMovieScore(String movieName1, String movieName2) async {
     try {
       final response = await _dio.get(
-        'http://192.168.1.129:5000/score/$movieName1/$movieName2'
+        'http://172.130.103.70:5000/score/$movieName1/$movieName2'
       );
+
       if (response.statusCode == 200) {
         print(response.data);
         return response.data;
@@ -37,7 +38,7 @@ class ScoreService {
         throw Exception('Request failed with status: ${response.statusCode}');
       }
     } catch (error) {
-      print("core url: http://192.168.1.129:5000/score/$movieName1/$movieName2");
+      print("core url: http://172.130.103.70:5000/score/$movieName1/$movieName2");
       throw Exception('Failed to fetch movie score: $error');
     }
   }

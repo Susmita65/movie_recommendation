@@ -19,4 +19,6 @@ class SnackShow{
         )
     );
   }
+
+  static void showError(String s) {}
 }

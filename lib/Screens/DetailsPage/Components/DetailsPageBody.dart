@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get/get.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:sizer/sizer.dart';
 import 'package:sstfix/Screens/DetailsPage/ErrorPage/Error.dart';
 import 'package:sstfix/snack_shows.dart';
 import 'package:dio/dio.dart';
 import '../../../api/api.dart';
 import '../../../main.dart';
 import '../../../service/rating_provider.dart';
+import '../../../service/review_provider.dart';
 import '../video_page.dart';
 import 'About/About.dart';
 import 'Cast/Cast.dart';
@@ -326,7 +328,66 @@ class _DetailsPageBodyState extends ConsumerState<DetailsPageBody> {
                                             );
                                           },
                                           child: Text("Rate this movie")
+                                      ),//,hataune hai
+
+                                      // SizedBox(
+                                      //   height: 2.h,
+                                      // ),
+                                      //change garna lako maile
+                                      TextButton(
+                                        onPressed: () {
+                                          showDialog(
+                                            context: context,
+                                            builder: (context) {
+                                              String _review = '';
+
+                                              return AlertDialog(
+                                                content: Column(
+                                                  mainAxisSize: MainAxisSize.min,
+                                                  children: [
+                                                    Text("Review"),
+                                                    TextField(
+                                                      onChanged: (value) {
+                                                        _review = value;
+                                                      },
+                                                      decoration: InputDecoration(
+                                                        hintText: 'Write your review...',
+                                                      ),
+                                                    ),
+                                                    TextButton(
+                                                      onPressed: () async {
+                                                        if (_review.isNotEmpty) {
+                                                          // Submit the review here
+                                                          print("movie id: ${moviedetails[0]['id']}");
+                                                          print("review: $_review");
+                                                          print("user id: $uid");
+
+                                                          try {
+                                                            await ref.read(reviewProvider.notifier).addReview(
+                                                              user_id: uid,
+                                                              movie_id: moviedetails[0]['id'],
+                                                              review: _review,
+                                                            );
+                                                            Navigator.pop(context);
+                                                          } catch (error) {
+                                                            SnackShow.showError("$error");
+                                                          }
+                                                        } else {
+                                                          print("Review cannot be empty");
+                                                          SnackShow.showError("Review cannot be empty");
+                                                        }
+                                                      },
+                                                      child: Text("Submit"),
+                                                    ),
+                                                  ],
+                                                ),
+                                              );
+                                            },
+                                          );
+                                        },
+                                        child: Center(child: Text("Review this movie")),
                                       )
+
 
                                     ],
                                   )),
